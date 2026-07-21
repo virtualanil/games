@@ -4,7 +4,7 @@ import { Bullet } from './bullet.js';
 import { Star, Shockwave, Particle, Powerup } from './utils.js';
 import { AudioSys } from './audio.js';
 import { calculateEnemyScore } from './score.js';
-import { GAME_SETTINGS } from './settings.js';
+import GAME_SETTINGS from './settings.js';
 import { saveScore, loadLeaderboard } from './leaderboard.js';
 
 export class Game {
