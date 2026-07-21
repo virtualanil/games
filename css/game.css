@@ -1,0 +1,36 @@
+#game-container { position: relative; width: 100vw; height: 100vh; }
+canvas { display: block; width: 100%; height: 100%; }
+
+.ui-layer {
+    position: absolute; pointer-events: none; width: 100%; height: 100%;
+    top: 0; left: 0; display: flex; flex-direction: column; justify-content: space-between;
+    box-sizing: border-box; z-index: 10;
+}
+.hud-top {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    font-size: 1rem; padding: 0 20px; height: 70px; background: rgba(2,2,10,0.85);
+    border-bottom: 2px solid var(--primary); box-shadow: 0 0 20px rgba(0,243,255,0.2);
+    text-shadow: 0 0 5px var(--primary); gap: 15px; z-index: 100; backdrop-filter: blur(5px);
+}
+.hud-stat {
+    background: rgba(0,243,255,0.1); border: 1px solid var(--primary); padding: 8px 15px; border-radius: 4px;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+.hud-stat span { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+.hud-combo { position: absolute; top: 90px; left: 50%; transform: translateX(-50%); text-align: center; color: var(--success); font-size: 1.5rem; text-shadow: 0 0 20px var(--success); opacity: 0; transition: opacity 0.2s, transform 0.1s; width: 100%; pointer-events: none; }
+.powerup-display { position: absolute; top: 90px; right: 20px; background: rgba(0,0,0,0.8); border: 2px solid var(--success); padding: 10px 20px; border-radius: 8px; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateX(50px); }
+.powerup-display.active { opacity: 1; transform: translateX(0); }
+.current-input { position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); font-family: var(--type-font); font-size: 2.5rem; color: var(--primary); text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary); letter-spacing: 5px; opacity: 0.9; z-index: 5; transition: transform 0.1s;}
+#damageOverlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 50%, rgba(255,0,0,0.6) 100%); opacity: 0; z-index: 50; transition: opacity 0.1s; pointer-events: none; }
+#feverOverlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 0 0 100px rgba(0,243,255,0.3); opacity: 0; z-index: 40; transition: opacity 0.5s; pointer-events: none;}
+
+/* Mode Selection Grids */
+.mode-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; width: 100%; margin: 30px 0; }
+.mode-card { background: rgba(0,0,0,0.6); border: 2px solid var(--primary); padding: 30px; border-radius: 10px; cursor: pointer; transition: all 0.3s; text-align: center; }
+.mode-card:hover { transform: translateY(-10px); }
+.mode-card.easy { border-color: var(--success); }
+.mode-card.easy h3 { color: var(--success); }
+.mode-card.hard { border-color: var(--warning); }
+.mode-card.hard h3 { color: var(--warning); }
+.mode-card.expert { border-color: var(--danger); }
+.mode-card.expert h3 { color: var(--danger); }
