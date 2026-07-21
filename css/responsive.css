@@ -1,0 +1,8 @@
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    .stats-grid, .mode-grid { grid-template-columns: 1fr; }
+    .hud-top { height: auto; padding: 10px; flex-direction: column; gap: 5px; }
+    .hud-stat { width: 100%; text-align: center; padding: 5px; }
+    .hud-combo { top: 120px; }
+    .lb-name { max-width: 80px; }
+}
