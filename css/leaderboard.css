@@ -1,0 +1,15 @@
+.leaderboard-container { margin-top: 20px; width: 100%; max-width: 500px; background: rgba(0,0,0,0.5); border: 1px solid #333; padding: 20px; border-radius: 8px; }
+.leaderboard-container h3 { margin: 0 0 15px 0; color: var(--success); text-align: center; font-size: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 10px; }
+ul.leaderboard-list { list-style: none; padding: 0; margin: 0; }
+ul.leaderboard-list li { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid #222; font-family: var(--type-font); font-size: 0.9rem; }
+.lb-name { color: #fff; flex: 1; font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 120px;}
+.lb-stats { color: #aaa; margin-right: 15px; }
+.lb-score { color: var(--primary); font-weight: bold; }
+.difficulty-badge { display: inline-block; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 20px; font-weight: bold; letter-spacing: 2px; }
+.difficulty-badge.easy { background: var(--success); color: #000; box-shadow: 0 0 10px var(--success); }
+.difficulty-badge.hard { background: var(--warning); color: #000; box-shadow: 0 0 10px var(--warning); }
+.difficulty-badge.expert { background: var(--danger); color: #fff; box-shadow: 0 0 10px var(--danger); }
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; text-align: left; min-width: 300px; }
+.stat-box { border-left: 4px solid var(--danger); padding: 10px 15px; background: rgba(255,255,255,0.05); }
+.stat-label { font-size: 0.8rem; color: #888; }
+.stat-value { font-size: 1.5rem; font-weight: bold; font-family: var(--type-font); }
