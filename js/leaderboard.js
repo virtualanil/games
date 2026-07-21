@@ -1,6 +1,6 @@
 import { db } from './firebase.js';
 import { currentUser } from './auth.js';
-import { collection, serverTimestamp, getDocs, query, orderBy, limit, doc, runTransaction } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+import { collection, serverTimestamp, getDocs, query, orderBy, limit, doc, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 export async function saveScore(score, wpm, difficulty) {
     if (!currentUser) return false;
@@ -38,7 +38,7 @@ export async function saveScore(score, wpm, difficulty) {
 
 export async function loadLeaderboard(listId, difficulty) {
     const listEl = document.getElementById(listId);
-    if(!listEl) return;
+    if (!listEl) return;
     listEl.innerHTML = '<li>Loading...</li>';
     
     try {
@@ -52,12 +52,13 @@ export async function loadLeaderboard(listId, difficulty) {
         querySnapshot.forEach((docSnapshot) => {
             const data = docSnapshot.data();
             listEl.innerHTML += `<li>
-                <span class="lb-name">${data.name}</span>
+                <span class="lb-name">${data.name || 'Anonymous'}</span>
                 <span class="lb-stats">SCORE: ${data.score}</span>
                 <span class="lb-score">WPM: ${data.wpm}</span>
             </li>`;
         });
     } catch (error) {
-        listEl.innerHTML = '<li>Error loading scores.</li>';
+        console.error("Leaderboard error:", error);
+        listEl.innerHTML = '<li>Error loading scores. Check Firestore rules.</li>';
     }
 }
